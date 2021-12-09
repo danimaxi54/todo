@@ -3,15 +3,15 @@ const add = document.body.querySelector('.add');
 const list = document.body.querySelector('.list');
 
 function createTask(value) {
-  let task = document.createElement('div');
+  const task = document.createElement('div');
   task.classList.add('created__task');
   task.addEventListener('click', completeTask);
 
-  let taskTextBox = document.createElement('div');
+  const taskTextBox = document.createElement('div');
   taskTextBox.textContent = value;
   taskTextBox.classList.add('task__text');
 
-  let taskCheckbox = document.createElement('input');
+  const taskCheckbox = document.createElement('input');
   taskCheckbox.setAttribute('type', 'checkbox');
   taskCheckbox.classList.add('status');
 
@@ -22,12 +22,17 @@ function createTask(value) {
 }
 
 add.addEventListener('click', addTask);
+field.onkeydown = function(event) {
+  if (event.keyCode === 13) {
+    addTask();
+  }
+}
 
 function addTask() {
   if (field.value == '' || field.value.length < 2) {
     openModal();
 
-    return false;
+    return;
   }
 
   const newTask = createTask(field.value);
@@ -39,12 +44,12 @@ function addTask() {
 function completeTask(event) {
   const target = event.target;
   if (event.target.tagName != 'INPUT') {
-    return false;
+    return;
   }
 
   const taskContainer = target.closest('.created__task');
 
-  let checkBoxStatus = taskContainer.querySelector('.status');
+  const checkBoxStatus = taskContainer.querySelector('.status');
   if (checkBoxStatus.checked) {
     taskContainer.classList.add('success');
   } else {
@@ -52,19 +57,19 @@ function completeTask(event) {
   }
 }
 
-let modalClose = document.body.querySelector('.modal__close');
+const modalClose = document.body.querySelector('.modal__close');
 modalClose.addEventListener('click', closeModal);
 
 function openModal() {
-  let modalOverlay = document.body.querySelector('.modal__overlay');
-  let modalDialog = document.body.querySelector('.modal__dialog');
+  const modalOverlay = document.body.querySelector('.modal__overlay');
+  const modalDialog = document.body.querySelector('.modal__dialog');
   modalOverlay.classList.add('modal__overlay--visible');
   modalDialog.classList.add('modal__dialog--visible');
 }
 
 function closeModal() {
-  let modalOverlay = document.body.querySelector('.modal__overlay');
-  let modalDialog = document.body.querySelector('.modal__dialog');
+  const modalOverlay = document.body.querySelector('.modal__overlay');
+  const modalDialog = document.body.querySelector('.modal__dialog');
   modalOverlay.classList.remove('modal__overlay--visible');
   modalDialog.classList.remove('modal__dialog--visible');
 }
