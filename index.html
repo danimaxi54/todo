@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first todo by native JS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="block">
+
+        <div class="control">
+          <input class="field" type="text" placeholder="Введите задачу">
+          <button class="add" type="button">
+            <img class="add__button" src="img/add-button.png" alt="Icon: add-button">
+          </button>
+        </div>
+
+        <div class="list"></div>
+
+      </div><!-- /.block -->
+    </div><!-- /.wrapper -->
+
+    <div class="modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__dialog">
+        <span class="modal__text">Введите больше, чем один символ!</span>
+        <div class="modal__close"></d>
+      </div>
+    </div>
+
+    <script src="js/todo.js"></script>
+
+  </body>
+</html>

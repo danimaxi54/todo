@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+
+	background: linear-gradient(90deg, #faf0cd, #fab397);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Обертка страницы
+==================== */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+/* TODO
+==================== */
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  min-height: 400px;
+
+  border: 2px solid tomato;
+  border-radius: 10px;
+
+  transition: box-shadow .2s linear;
+}
+
+.block:hover {
+  box-shadow: 400px 0 0 0 rgba(127, 255, 212, .3) inset;
+}
+
+.control {
+  margin-bottom: 10px;
+}
+
+.field {
+  width: 200px;
+  height: 50px;
+  margin-right: 10px;
+  padding: 0 10px 0 15px;
+
+  font-family: inherit;
+  color: inherit;
+
+  background-image: linear-gradient(to right, pink, lightgreen);
+  background-color: transparent;
+
+  border: 2px solid #fff;
+  border-radius:10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  outline-color: tomato;
+}
+
+.field::placeholder {
+  color: inherit;
+}
+
+.control {
+  display: flex;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.add:hover {
+  box-shadow: 0 0 0 2px #D2973D inset, 0 0 0 4px white inset;
+}
+
+.add__button {
+  width: 40px;
+  height: 40px;
+}
+
+.list {
+  width: 350px;
+}
+
+.created__task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px;
+
+  border: 1px dashed yellow;
+}
+
+.task__text {
+  max-width: 300px;
+  overflow-x: hidden;
+}
+
+.success {
+  text-decoration: line-through;
+}
+
+/* Ошибка
+==================== */
+.modal__overlay {
+  visibility: hidden;
+  opacity: 0;
+
+  background-color: rgba(0, 143, 223, 0.29);
+
+  transition: opacity .5s linear;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.moval__overlay--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__dialog {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+
+  text-align: center;
+
+  background-image: url("../img/error-bg1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  transition: opacity .5s linear;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+}
+
+.modal__dialog--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__close {
+  width: 50px;
+  height: 50px;
+
+  background: #C76637;
+
+  cursor: pointer;
+
+  position: absolute;
+  top: -16px;
+  right: -25px;
+}
+
+.modal__close:hover {
+  box-shadow: 2px 2px white, 4px 4px #C76637;
+}
+
+.modal__close::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+
+  background-color: #fff;
+
+  transform: translateY(-50%) rotate(45deg);
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.modal__close::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+
+  background-color: #fff;
+
+  transform: translateY(-50%) rotate(-45deg);
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.modal__text {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+
+  background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
+
+  border: 5px dashed purple;
+}
+
+
