@@ -11,12 +11,18 @@
 
     <div class="wrapper">
       <div class="block">
+        <div class="block__top">
+          <h3 class="block__title">TODO</h3>
+        </div>
 
-        <div class="control">
-          <input class="field" type="text" placeholder="Введите задачу">
-          <button class="add" type="button">
-            <img class="add__button" src="img/add-button.png" alt="Icon: add-button">
-          </button>
+        <div class="task-controls">
+          <div class="control">
+            <input class="field" type="text" placeholder="Введите задачу">
+            <button class="add" type="button">
+              <img class="add__button" src="img/add-button.png" alt="Icon: add-button">
+            </button>
+          </div>
+          <button class="task-remove" type="button" data-tooltip="Нет задач для удаления"><span></span></button>
         </div>
 
         <div class="list"></div>
@@ -24,11 +30,19 @@
       </div><!-- /.block -->
     </div><!-- /.wrapper -->
 
+    <div class="asking-popup">
+      <h3 class="asking-popup__title">Подвердите удаление?</h3>
+      <div class="asking-popup__btns">
+        <button class="asking-popup__btn asking-popup__btn--cansel" data-result="cansel">Отменить</button>
+        <button class="asking-popup__btn asking-popup__btn--delete" data-result="confirm">Удалить</button>
+      </div>
+    </div>
+
     <div class="modal">
       <div class="modal__overlay"></div>
       <div class="modal__dialog">
         <span class="modal__text">Введите больше, чем один символ!</span>
-        <div class="modal__close"></d>
+        <span class="modal__close"></d>
       </div>
     </div>
 

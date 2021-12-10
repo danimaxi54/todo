@@ -22,13 +22,55 @@ function createTask(value) {
 }
 
 add.addEventListener('click', addTask);
+
 field.onkeydown = function(event) {
   if (event.keyCode === 13) {
     addTask();
   }
 }
 
-function addTask() {
+const taskRemoveBtn = document.body.querySelector('.task-remove');
+
+document.addEventListener('click', function(event) {
+  let targetElem = event.target;
+
+  if (list.children.length < 1) {
+    return;
+  }
+
+  if (targetElem.classList.contains('task-remove') || targetElem.parentNode.tagName == 'BUTTON') {
+    deleteTasksPopUp();
+  }
+
+  const askingPopUp = document.body.querySelector('.asking-popup');
+  if (targetElem.dataset.result == 'confirm') {
+    askingPopUp.classList.remove('asking-popup--visible');
+
+    taskBtn();
+  } else if (targetElem.dataset.result == 'cansel') {
+    askingPopUp.classList.remove('asking-popup--visible');
+  }
+});
+
+
+function taskBtn() {
+  if (!taskRemoveBtn.classList.contains('task-remove--active')) {
+    taskRemoveBtn.classList.add('task-remove--active');
+
+    for (let getTask of document.body.querySelectorAll('.created__task')) {
+      getTask.remove();
+    }
+  }
+
+  setTimeout(() => taskRemoveBtn.classList.remove('task-remove--active'), 1000);
+}
+
+function deleteTasksPopUp() {
+  const popUp = document.body.querySelector('.asking-popup');
+  popUp.classList.add('asking-popup--visible');
+}
+
+function addTask(event) {
   if (field.value == '' || field.value.length < 2) {
     openModal();
 
@@ -39,6 +81,8 @@ function addTask() {
 
   list.append(newTask);
   field.value = '';
+
+  event.stopPropagation();
 }
 
 function completeTask(event) {
