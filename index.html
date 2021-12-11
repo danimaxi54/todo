@@ -22,29 +22,55 @@
               <img class="add__button" src="img/add-button.png" alt="Icon: add-button">
             </button>
           </div>
-          <button class="task-remove" type="button" data-tooltip="Нет задач для удаления"><span></span></button>
+          <button class="task-remove" type="button" data-tooltip="Нет задач для удаления">
+            <span></span>
+          </button>
         </div>
 
         <div class="list"></div>
 
-      </div><!-- /.block -->
+      </div>
+
+      <div class="task-info task-couter">
+        <span class="task-info__item task-info__total">
+          Общее количество задач:
+          <code class="task-couter__total">0</code>
+        </span>
+        <span class="task-info__item task-info__todo">
+          Активные задачи:
+          <code class="task-couter__todo">0</code>
+        </span>
+        <span class="task-info__item task-info__done">
+          Выполненые задачи (текущие):
+          <code class="task-couter__done">0</code>
+        </span>
+      </div>
+
     </div><!-- /.wrapper -->
 
     <div class="asking-popup">
       <h3 class="asking-popup__title">Подвердите удаление?</h3>
       <div class="asking-popup__btns">
-        <button class="asking-popup__btn asking-popup__btn--cansel" data-result="cansel">Отменить</button>
-        <button class="asking-popup__btn asking-popup__btn--delete" data-result="confirm">Удалить</button>
+        <button class="asking-popup__btn asking-popup__btn--cansel" data-result="cansel">
+          Отменить
+        </button>
+        <button class="asking-popup__btn asking-popup__btn--delete" data-result="confirm">
+          Удалить
+        </button>
       </div>
-    </div>
+    </div><!-- ./asking-popup -->
 
     <div class="modal">
       <div class="modal__overlay"></div>
       <div class="modal__dialog">
-        <span class="modal__text">Введите больше, чем один символ!</span>
+        <span class="modal__text">
+          Символов либо нет, либо меньше, чем один!
+        </span>
         <span class="modal__close"></d>
       </div>
-    </div>
+    </div><!-- /.modal -->
+
+    <code id="code"></code>
 
     <script src="js/todo.js"></script>
 
