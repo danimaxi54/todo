@@ -123,15 +123,16 @@ const taskRemoveBtn = document.body.querySelector('.task-remove');
 function taskBtn() {
   if (!taskRemoveBtn.classList.contains('task-remove--active')) {
     taskRemoveBtn.classList.add('task-remove--active');
+  }
 
-    for (let getTask of document.body.querySelectorAll('.created__task')) {
-      getTask.classList.add('created__task--remove');
+  for (let getTask of document.body.querySelectorAll('.created__task')) {
+    getTask.classList.add('created__task--remove');
 
-      setTimeout(() => {
-        getTask.remove();
-        todoTasksCounter();
-      }, 500);
-    }
+    setTimeout(() => {
+      getTask.remove();
+      todoTasksCounter();
+      doneTasksCounter();
+    }, 500);
   }
 
   setTimeout(() => taskRemoveBtn.classList.remove('task-remove--active'), 1000);
